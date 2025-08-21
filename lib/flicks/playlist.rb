@@ -1,3 +1,5 @@
+require_relative "snackbar"
+
 class Playlist
 
 	attr_reader :name, :movies
@@ -20,8 +22,12 @@ class Playlist
 
 		puts "*" * 30
 		puts "#{@name}'s playlist:"
-		
-		puts "\nBefore wathcing:"
+
+		puts "\nThe snack bar has:"
+		Snackbar::SNACKS.each do |snack|
+			puts "#{snack.name} for $#{snack.price}"
+		end
+		puts "\nBefore watching:"
 		puts @movies
 
 		1.upto(viewings) do |viewing_number|
@@ -39,6 +45,9 @@ class Playlist
 					movie.thumbs_up
 					puts "#{movie.title} got a 👍"
 				end
+
+				snack = Snackbar.random_snack
+				puts "During #{movie.title}, #{@name} ate #{snack.name} for $#{snack.price}"
 			end
 		end
 		puts "\nAfter wathcing:"
