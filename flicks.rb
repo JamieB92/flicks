@@ -22,4 +22,4 @@ movie_4 = Movie.new("gremlins", 7)
 
 playlist_2.add_movie(movie_4)
 
-playlist_2.play(3)
+playlist_2.play(20)
